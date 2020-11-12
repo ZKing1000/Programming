@@ -1,0 +1,4 @@
+money:0
+level:0
+details:None
+stage:self.spawn()

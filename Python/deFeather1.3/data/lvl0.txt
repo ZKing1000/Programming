@@ -1,0 +1,17 @@
+[flyingenemy]
+vx = 0
+num = 0
+
+[score]
+maxscore = 0
+
+[walkenemy]
+vx = 0
+num = 1
+
+[b2]
+x = 300
+
+[time]
+best = 120
+

@@ -1,0 +1,18 @@
+[level]
+tileset = wooden_house.png
+offset = 13,16
+map =	\,,,,,,,/
+	\,,,X,,,/
+
+[\]
+name = left_wood
+tile = 6,9
+flip = 0,1
+
+[/]
+name = right_wood
+tile = 6,9
+
+[,]
+name = wood
+tile = 5,9

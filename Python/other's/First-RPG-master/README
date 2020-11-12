@@ -1,0 +1,24 @@
+Run main.py to start the program- requires pygame and works with both Python
+2.7 as well as 3.2 (usually).
+
+Use END to access the menus, the arrow keys to move the character, and press
+Enter to talk with NPCs or examine objects. For now, the E key will allow the
+PC to 'attack' when not indoors, though this action doesn't currently have a
+use within the game (just for fun). It will likely be removed sooner or later,
+unless I decide to use it for something.
+
+There's a ZIP/EXE Windows distributable located at:
+http://www.megaupload.com/?d=X35SLYLB
+
+The distributable contains all of the files needed to run the game on Windows
+(from main.exe) if you don't have the required modules/python version. This is
+typically an older version than the current code available, so running from
+main.py will generally be the safest bet in accessing the game.
+
+Program: v.062
+Dist(ZIP): v.062 (just updated)
+
+Credit to Stephen Challener (Redshrike) for forest tilesheets.
+(This credit list will be growing as the project proceeeds.)
+
+To all those I credit, here's hoping I'll be able to do your work justice!

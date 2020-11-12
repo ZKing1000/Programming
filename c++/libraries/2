@@ -1,0 +1,121 @@
+#include "SDL/SDL.h"
+#include "SDL/SDL_ttf.h"
+#include <vector>
+#include <array>
+#include <iostream>
+class Display{
+public:
+	SDL_Surface* screen;
+	std::array<SDL_Rect,2> coords;
+	std::string text;
+	bool center;
+	std::string font;
+	SDL_Color background;
+	SDL_Color outline;
+	SDL_Color textC;
+	bool cutMidLine;
+	int outlineSize;
+	//<cache for updating
+	int fontSize = 0;
+	std::vector<SDL_Surface*> lines;
+	std::vector<SDL_Rect> positions;
+	///>
+	std::array<int,2> dimentions;
+	std::array<int,2> space;
+	SDL_Surface* drawSurface;
+
+	SDL_Surface* textGen(std::string text,bool center,bool transition);
+	Display(SDL_Surface* screen,std::array<SDL_Rect,2> coords,std::string text,bool center,std::string font,SDL_Color background,SDL_Color outline,SDL_Color textC,bool cutMidLine,int outlineSize);
+};
+
+Display::Display(SDL_Surface* screen,std::array<SDL_Rect,2> coords,std::string text,bool center,std::string font,SDL_Color background,SDL_Color outline,SDL_Color textC,bool cutMidLine,int outlineSize):
+	screen(screen),
+	coords(coords),
+	text(text),
+	font(font),
+	background(background),
+	outline(outline),
+	textC(textC),
+	cutMidLine(cutMidLine),
+	outlineSize(outlineSize),
+	dimentions{coords[1].x-coords[0].x,coords[1].y-coords[0].y},
+	space{dimentions[0]-(outlineSize*2),dimentions[1]-(outlineSize*2)}
+{
+	drawSurface = textGen(text,center,true);
+	std::cout << "POOP\n";
+}
+
+SDL_Surface* Display::textGen(std::string text,bool center,bool transition){
+	SDL_Surface* crap;
+	std::vector< SDL_Surface* > previousLines = {crap};
+	while(1){
+		std::string line;
+		TTF_Font *font = NULL;
+		font = TTF_OpenFont(this->font.c_str(),this->fontSize);
+		for(int i=0;i<this->text.size();i++){
+			SDL_Surface* text = TTF_RenderText_Solid(font,this->text.c_str(),this->textC);
+			line += this->text[i];
+			if(text->w >= space[0]){
+				i--;
+				lines.push_back(TTF_RenderText_Solid(font,line.substr(0,line.size()-1).c_str(),this->textC));
+				line = "";
+			}
+			if(line.size() > 0 && i == this->text.size()-1){
+				lines.push_back(TTF_RenderText_Solid(font,line.c_str(),this->textC));
+			}
+		}
+		int sizeY = 0;
+		int sizeX = 0;
+		for(int i=0;i<lines.size();i++){
+			sizeY += lines[i]->h;
+			sizeX += lines[i]->w;
+		}
+		if(sizeX >= this->space[0] || sizeY >= this->space[1]){
+			SDL_Surface* tmp;
+			tmp = SDL_CreateRGBSurface(0,this->dimentions[0],this->dimentions[1],32,this->background.r,this->background.g,this->background.b,255);
+			SDL_Surface* background;
+			background = SDL_CreateRGBSurface(0,this->dimentions[0]-(this->outlineSize*2),this->dimentions[1]-(this->outlineSize*2),32,this->background.r,this->background.g,this->background.b,255);
+			SDL_Rect offset;
+			offset.x = this->outlineSize;
+			offset.y = this->outlineSize;
+			SDL_BlitSurface(background,NULL,tmp,&offset);
+			int pH = 0;
+			for(int i=0;i<previousLines.size();i++){
+				SDL_Rect offset;
+				if(this->center){
+					offset.x = (space[0]-previousLines[i]->w)/2;
+				}else{
+					offset.x = 0;
+				}
+				offset.y = pH;
+				SDL_BlitSurface(previousLines[i],NULL,tmp,&offset);
+				pH += previousLines[i]->h;
+			}
+			return tmp;
+		}
+		if(transition){
+			this->fontSize++;
+		}else{
+			this->fontSize--;
+		}
+		std::vector< SDL_Surface* > previousLines = lines;
+	}
+}
+
+/*};
+int main(){
+	TTF_Init();
+	SDL_Init(SDL_INIT_EVERYTHING);
+	SDL_Surface* screen = NULL;
+	array<int,2> screenSize = {1,1};
+	screen = SDL_SetVideoMode(screenSize[0],screenSize[1],32,SDL_SWSURFACE);
+	SDL_Rect coords1;
+	coords1.x = 1;
+	coords1.y = 1;
+	SDL_Rect coords2;
+	coords2.x = 1;
+	coords2.y = 1;
+	vector<SDL_Rect> coords = {coords1,coords2};
+	Display test(screen,coords);
+	return 1;
+}*/

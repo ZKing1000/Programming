@@ -1,0 +1,50 @@
+#include <iostream>
+#include <vector>
+#include <array>
+#include "SDL/SDL.h"
+#include "SDL/SDL_image.h"
+#include "SDL/SDL_ttf.h"
+#include "textBox.h"
+
+class Game{
+public:
+std::array<int,2> screenSize;
+SDL_Surface* screen;
+
+std::string mainFontPath = "./graphics/fonts/font.ttf";
+
+Game(std::array<int,2> screenSize);
+void menu(std::string words);
+};
+
+Game::Game(std::array<int,2> screenSize):
+	screenSize(screenSize),
+	screen(SDL_SetVideoMode(screenSize[0],screenSize[1],32,SDL_SWSURFACE))
+{
+	SDL_Init(SDL_INIT_EVERYTHING);
+	TTF_Init();
+}
+
+void Game::menu(std::string words){
+	SDL_FillRect(screen,NULL,0x00ffff);
+	SDL_Rect size = {screenSize[0]/4,screenSize[1]/4};
+	SDL_Color textC = {0,0,0};
+	std::cout << "EEEEEEEAAAAAAAAAAATTTTTTTT\n";
+	std::cout << "HIDHF##############\n";
+	DynamicDisplay dynamic(size,"TESTICLES are",true,false,mainFontPath,textC);
+	SDL_Rect where = {(screenSize[0]-size.x)/2,(screenSize[1]-size.y)/2};
+	SDL_FillRect(screen,NULL,0x00ffff);
+	dynamic.draw(screen,&where);
+	SDL_Flip(screen);
+	SDL_Color color = {255,255,255,255};
+	std::string data = " added";
+	for(int i=0;i<100;i++){
+		SDL_FillRect(screen,NULL,0x00ffff);
+		dynamic.add(" ba");
+		dynamic.surface = background(dynamic.surface,color);
+		dynamic.draw(screen,&where);
+		SDL_Flip(screen);
+		SDL_Delay(2000);
+	}
+	SDL_Delay(5000);
+}

@@ -1,0 +1,93 @@
+[level]
+tileset = light_forest_tileset_0.png
+map =	XXXXXXXXXXXXXXXXXXXXXXXXX
+	X/----------------\XXXXXX
+	X:.,.,.,.,.,.,.,.,;XXXXXX
+	X:'`'`'`'`'`'`'`'`;XXXXXX
+	X<___________ab___>XXXXXX
+	X(~~~~~~~~~~~XX~~~)XXXXXX
+	XXXXXXXXXXXXXXXXXXXXXXXXX
+	XXXXXXXXXXXXXXXXXXXXXXXXX
+	XXXXXXXXXXXXXXXXXXXXXXXXX
+	XXXXXXXXXXXXXXXXXXXXXXXXX
+	XXXXXXXXXXXXXXXXXXXXXXXXX
+	XXXXXXXXXXXXXXXXXXXXXXXXX
+	XXXXXXXXXXXXXXXXXXXXXXXXX
+	XXXXXXXXXXXXXXXXXXXXXXXXX
+	XXXXXXXXXXXXXXXXXXXXXXXXX
+	XXXXXXXXXXXXXXXXXXXXXXXXX
+	XXXXXXXXXXXXXXXXXXXXXXXXX
+	XXXXXXXXXXXXXXXXXXXXXXXXX
+	XXXXXXXXXXXXXXXXXXXXXXXXX
+	XXXXXXXXXXXXXXXXXXXXXXXXX
+
+[X]
+name = empty
+
+[a]
+name = grass_with_BL_stone_corner
+tile = 1,6
+
+[b]
+name = grass_with_BR_stone_corner
+tile = 0,6
+
+[.]
+name = grass_1
+tile = 0,17
+
+[,]
+name = grass_2
+tile = 0,18
+
+[']
+name = grass_3
+tile = 1,17
+
+[`]
+name = grass_4
+tile = 1,18
+
+[:]
+name = left_cliff
+tile = 0,1
+
+[;]
+name = right_cliff
+tile = 2,1
+
+[-]
+name = top_cliff
+tile = 1,0
+
+[_]
+name = bottom_cliff
+tile = 1,2
+
+[/]
+name = topleft_cliff_corner
+tile = 0,0
+
+[\]
+name = topright_cliff_corner
+tile = 2,0
+
+[<]
+name = bottomleft_cliff_corner
+tile = 0,2
+
+[>]
+name = bottomright_cliff_corner
+tile = 2,2
+
+[(]
+name = leftmid_cliff_face
+tile = 0,3
+
+[)]
+name = rightmid_cliff_face
+tile = 2,3
+
+[~]
+name = middlemid_cliff_face
+tile = 1,3

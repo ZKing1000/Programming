@@ -1,0 +1,125 @@
+[level]
+tileset = wooden_house.png
+offset = 12,7
+map =	-----~-----
+	----(_)----
+	---(#_@)---
+	--(##^@@)--
+	-&##;=:@@$-
+	-?#;+++:@!-
+	-?;+++++:!-
+	-<\*****/>-
+	-{,,,,,,,}-
+
+[~]
+name = top_roof
+tile = 8,0
+
+[(]
+name = top_left_slant_roof
+tile = 9,0
+
+[)]
+name = top_right_slant_roof
+tile = 9,0
+flip = 0,1
+
+[#]
+name = left_slant_roof
+tile = 6,2
+
+[@]
+name = right_slant_roof
+tile = 6,2
+flip = 0,1
+
+[&]
+name = top_left_roof
+tile = 7,5
+flip = 0,1
+
+[$]
+name = top_right_roof
+tile = 7,5
+
+[?]
+name = left_roof
+tile = 7,6
+flip = 0,1
+
+[!]
+name = right_roof
+tile = 7,6
+
+[_]
+name = mid_roof
+tile = 8,1
+
+[^]
+name = curved_pinnacle
+tile = 4,0
+overlay = 7,0
+
+[=]
+name = top_window_arch
+tile = 4,1
+
+[;]
+name = top_left_corner
+tile = 0,1
+overlay = 6,1
+
+[:]
+name = top_right_corner
+tile = 0,1
+flip = 0,1
+overlay = 6,1
+overlay_flip = 0,1
+
+[+]
+name = cross_beams_mid
+tile = 1,1
+
+[>]
+name = right_corner
+tile = 8,9
+overlay = 4,5
+overlay_2 = 7,7
+
+[<]
+name = left_corner
+tile = 8,9
+flip = 0,1
+overlay = 4,5
+overlay_flip = 0,1
+overlay_2 = 7,7
+overlay_2_flip = 0,1
+
+[/]
+name = rail_right_corner
+tile = 7,9
+overlay = 1,5
+
+[\]
+name = rail_left_corner
+tile = 7,9
+overlay = 1,5
+overlay_flip = 0,1
+
+[*]
+name = rail
+tile = 7,9
+overlay = 0,5
+
+[}]
+name = right_panel
+tile = 6,9
+
+[{]
+name = left_panel
+tile = 6,9
+flip = 0,1
+
+[,]
+name = panel
+tile = 5,9

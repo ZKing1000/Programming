@@ -1,0 +1,23 @@
+[flyingenemy]
+vx = 0
+num = 0
+
+[time]
+best = 0
+
+[b4]
+x = 300
+
+[b5]
+x = 600
+
+[score]
+maxscore = 0
+
+[b3]
+x = 100
+
+[walkenemy]
+vx = 4
+num = 2
+

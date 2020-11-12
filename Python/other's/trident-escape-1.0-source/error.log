@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "run_game.pyw", line 152, in run
+    main.main()
+  File "lib/main.py", line 172, in main
+    Controller().run()
+  File "lib/main.py", line 156, in run
+    app.run()
+  File "/home/holden/Desktop/Python/trident-escape-1.0-source/pyglet/app/__init__.py", line 264, in run
+    EventLoop().run()
+  File "/home/holden/Desktop/Python/trident-escape-1.0-source/pyglet/app/xlib.py", line 93, in run
+    sleep_time = self.idle()
+  File "/home/holden/Desktop/Python/trident-escape-1.0-source/pyglet/app/__init__.py", line 193, in idle
+    window.dispatch_event('on_draw')
+  File "/home/holden/Desktop/Python/trident-escape-1.0-source/pyglet/window/__init__.py", line 1219, in dispatch_event
+    EventDispatcher.dispatch_event(self, *args)
+  File "/home/holden/Desktop/Python/trident-escape-1.0-source/pyglet/event.py", line 340, in dispatch_event
+    if handler(*args):
+  File "lib/playmode.py", line 250, in on_draw
+    spr = self.entity_sprs[e]
+KeyError: <entity.NPC object at 0x3fd1550>

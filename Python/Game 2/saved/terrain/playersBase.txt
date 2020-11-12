@@ -1,0 +1,7 @@
+{w=woodTiling.png,s=stone.png,g=woodPlank.png
+g(30,6)
+g(13)w(4)g(13)
+g(13)w(4)g(13)
+g(13)w(4)g(13)
+g(13)w(4)g(13)
+g(30,6)
